@@ -1,7 +1,7 @@
-
-function playGame(playerInput){
+{
+const playGame = function(playerInput){
   clearMessages();
-  function getMoveName(argMoveId){
+  const getMoveName = function(argMoveId){
     if(argMoveId == 1){
       return 'kamień';
     }
@@ -54,18 +54,10 @@ if(playerInput == '1'){
 
   if( computerMove == playerMove ){
     printMessage('Remis!');
-  } else if( computerMove == 'kamień' && playerMove == 'nożyce'){
+  } else if( computerMove == 'kamień' && playerMove == 'nożyce' || computerMove == 'papier' && playerMove == 'kamień'|| computerMove == 'nożyce' && playerMove == 'papier'){
     printMessage('Przegrywasz!');
-  } else if( computerMove == 'kamień' && playerMove == 'papier'){
+  } else if( computerMove == 'kamień' && playerMove == 'papier' || computerMove == 'papier' && playerMove == 'nożyce' || computerMove == 'nożyce' && playerMove == 'kamień'){
     printMessage('Ty wygrywasz!');
-  } else if( computerMove == 'papier' && playerMove == 'nożyce'){
-    printMessage('Ty wygrywasz!');
-  } else if( computerMove == 'papier' && playerMove == 'kamień'){
-    printMessage('Przegrywasz!');
-  } else if( computerMove == 'nożyce' && playerMove == 'kamień'){
-    printMessage('Ty wygrywasz!');
-  } else if( computerMove == 'nożyce' && playerMove == 'papier'){
-    printMessage('Przegrywasz!');
   } else {
     printMessage('Wybierz 1, 2 lub 3!');
   }
@@ -79,3 +71,4 @@ document.getElementById('play-paper').addEventListener('click', function(){
 document.getElementById('play-scissors').addEventListener('click', function(){
   playGame(3);
 });
+}
